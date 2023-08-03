@@ -63,6 +63,31 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/luntpc04659_Assignment/admin/ad-user">Người Dùng</a>
                         </li>
+                        <li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Tài Khoản </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								
+								<a class="dropdown-item"
+									href="/luntpc04659_Assignment/user/home">Trở về</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item"
+									href="/luntpc04659_Assignment/user/change-password">Đổi Mật
+									Khẩu</a> <a class="dropdown-item"
+									href="/luntpc04659_Assignment/user/forgot-password">Quên
+									Mật Khẩu</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item"
+									href="/luntpc04659_Assignment/user/edit-profile">Cập Nhật
+									Thông Tin</a>
+								
+								<div class="dropdown-divider"></div>
+								<c:if test="${sessionScope.user != ''}">
+									<a class="dropdown-item" href="/luntpc04659_Assignment/logout">Đăng
+										Xuất</a>
+								</c:if>
+							</div></li>
                     </ul>
                 </div>
             </div>
