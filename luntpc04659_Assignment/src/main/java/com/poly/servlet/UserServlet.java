@@ -2,6 +2,8 @@ package com.poly.servlet;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,11 +15,13 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.poly.dao.UserDAO;
+import com.poly.dao.VideoDAO;
 import com.poly.utils.CookieUtils;
 import com.poly.model.User;
+import com.poly.model.Video;
 
 @WebServlet({ "/user/home", "/user/favorite-video", "/user/change-password", "/user/forgot-password",
-		"/user/description-video", "/user/edit-profile", "/user/login", "/user/register",
+		"/user/description-video/*", "/user/edit-profile", "/user/login", "/user/register",
 		"/logout" })
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +42,7 @@ public class UserServlet extends HttpServlet {
 			this.doLogin(request, response);
 		} else if (uri.contains("logout")) {
 			this.doLogout(request, response);
+			
 		} else if (uri.contains("register")) {
 			this.doRegister(request, response);
 		} else if (uri.contains("change-password")) {
@@ -50,26 +55,34 @@ public class UserServlet extends HttpServlet {
 			this.doDescriptionVideo(request, response);
 		} else if (uri.contains("favorite-video")) {
 			this.doFavoriteVideo(request, response);
-		}
-
+		}else
 		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 
-	private void doLogout(HttpServletRequest request, HttpServletResponse response) {
+	private void doLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.getSession().setAttribute("user", "");
 		request.getSession().setAttribute("role", "");
 		request.setAttribute("view", "/views/user/index.jsp");
+
+		response.sendRedirect("/luntpc04659_Assignment/user/home");
 	}
 
-	private void doFavoriteVideo(HttpServletRequest request, HttpServletResponse response) {
+	private void doFavoriteVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("view", "/views/user/favorite-video.jsp");
+		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 
 	private void doDescriptionVideo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String uri = request.getRequestURI();
+		String id = uri.substring(uri.lastIndexOf("/") + 1);
+		VideoDAO videoDAO = new VideoDAO();
+		Video video = videoDAO.findById(id);
+		request.setAttribute("video", video);
 		request.setAttribute("view", "/views/user/description-video.jsp");
+		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 
 	private void doEditProfile(HttpServletRequest request, HttpServletResponse response)
@@ -92,12 +105,14 @@ public class UserServlet extends HttpServlet {
 			
 		}
 		request.setAttribute("view", "/views/user/edit-profile.jsp");
+		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 
 	private void doForgotPassword(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("view", "/views/user/forgot-password.jsp");
+		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 
 	private void doRegister(HttpServletRequest request, HttpServletResponse response)
@@ -107,6 +122,7 @@ public class UserServlet extends HttpServlet {
 		if (method.equalsIgnoreCase("GET")) {
 //			
 			request.setAttribute("view", "/views/user/register.jsp");
+			request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 		}
 		if (method.equalsIgnoreCase("POST")) {
 			String passcon = request.getParameter("passwordConfirm");
@@ -118,11 +134,13 @@ public class UserServlet extends HttpServlet {
 					request.getSession().setAttribute("user", user);
 					request.getSession().setAttribute("role", user.getAdmin());
 					request.setAttribute("view", "/views/user/index.jsp");
+					response.sendRedirect("/luntpc04659_Assignment/user/home");
 				} else {
 					request.setAttribute("error", "Xác nhận mật khẩu không đúng!");
 					request.setAttribute("view", "/views/user/register.jsp");
+					request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 				}
-
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -145,6 +163,7 @@ public class UserServlet extends HttpServlet {
 //			}
 //			request.setAttribute("UserId", un);
 			request.setAttribute("view", "/views/user/login.jsp");
+			request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 		}
 		if (method.equalsIgnoreCase("POST")) {
 			String username = request.getParameter("userId");
@@ -172,12 +191,11 @@ public class UserServlet extends HttpServlet {
 					
 					if (user.getAdmin() == true) {
 						request.getSession().setAttribute("role", "admin");
-						request.setAttribute("view", "/views/user/index.jsp");
-					} else {
-						request.setAttribute("view", "/views/user/index.jsp");
 					}
+					response.sendRedirect("/luntpc04659_Assignment/user/home");
 					
 				}
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -189,11 +207,16 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("view", "/views/user/change-password.jsp");
+		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 
 	private void doHome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		List<Video> video = new ArrayList<Video>();
+		VideoDAO videoDAO = new VideoDAO();
+		video = videoDAO.findAll();
+		request.setAttribute("videos", video);
 		request.setAttribute("view", "/views/user/index.jsp");
-
+		request.getRequestDispatcher("/views/user/layout.jsp").forward(request, response);
 	}
 }

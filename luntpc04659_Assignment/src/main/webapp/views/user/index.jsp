@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
   <!-- Page Content -->
   <!-- Banner Starts Here -->
   <div class="banner header-text">
@@ -36,132 +36,16 @@
             <a href="videos.html">Xem tất cả <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="/luntpc04659_Assignment/user/description-video"><img src="/luntpc04659_Assignment/views/assets/images/product_01.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="/luntpc04659_Assignment/user/description-video">
-                <h4>Doremon</h4>
-              </a>
-              <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-              <ul class="stars">
-                <li><i class="">View</i></li>
-                <li><i class="">0</i></li>
-              </ul>
-              <span>
-                <ul class="stars">
-                  <li><i class="fa fa-heart"></i></li>
-                  <li><i class="fa fa-share" data-toggle="modal" data-target="#SendMail"></i></li>
-                </ul>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="/luntpc04659_Assignment/user/description-video"><img src="/luntpc04659_Assignment/views/assets/images/product_02.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="/luntpc04659_Assignment/user/description-video">
-                <h4>Doremon</h4>
-              </a>
-              <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-              <ul class="stars">
-                <li><i class="">View</i></li>
-                <li><i class="">0</i></li>
-              </ul>
-              <span>
-                <ul class="stars">
-                  <li><i class="fa fa-heart"></i></li>
-                  <li><i class="fa fa-share"></i></li>
-                </ul>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="/luntpc04659_Assignment/user/description-video"><img src="/luntpc04659_Assignment/views/assets/images/product_03.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="/luntpc04659_Assignment/user/description-video">
-                <h4>Doremon</h4>
-              </a>
-              <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-              <ul class="stars">
-                <li><i class="">View</i></li>
-                <li><i class="">0</i></li>
-              </ul>
-              <span>
-                <ul class="stars">
-                  <li><i class="fa fa-heart"></i></li>
-                  <li><i class="fa fa-share"></i></li>
-                </ul>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="/luntpc04659_Assignment/user/description-video"><img src="/luntpc04659_Assignment/views/assets/images/product_04.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="/luntpc04659_Assignment/user/description-video">
-                <h4>Doremon</h4>
-              </a>
-              <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-              <ul class="stars">
-                <li><i class="">View</i></li>
-                <li><i class="">0</i></li>
-              </ul>
-              <span>
-                <ul class="stars">
-                  <li><a href=""><i class="fa fa-heart"></i></a></li>
-                  <li><a href=""><i class="fa fa-share"></i></a></li>
-                </ul>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="/luntpc04659_Assignment/user/description-video"><img src="/luntpc04659_Assignment/views/assets/images/product_05.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="/luntpc04659_Assignment/user/description-video">
-                <h4>Doremon</h4>
-              </a>
-              <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-              <ul class="stars">
-                <li><i class="">View</i></li>
-                <li><i class="">0</i></li>
-              </ul>
-              <span>
-                <ul class="stars">
-                  <li><i class="fa fa-heart"></i></li>
-                  <li><i class="fa fa-share"></i></li>
-                </ul>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="/luntpc04659_Assignment/user/description-video"><img src="/luntpc04659_Assignment/views/assets/images/product_06.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="/luntpc04659_Assignment/user/description-video">
-                <h4>Doremon</h4>
-              </a>
-              <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-              <ul class="stars">
-                <li><i class="">View</i></li>
-                <li><i class="">0</i></li>
-              </ul>
-              <span>
-                <ul class="stars">
-                  <li><i class="fa fa-heart"></i></li>
-                  <li><i class="fa fa-share"></i></li>
-                </ul>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+			<c:forEach var="video" items="${videos}" begin="1" end="6">
+				<jsp:include page="/views/user/_videocard.jsp">
+					<jsp:param value="${video.videoId}" name="videoId" />
+					<jsp:param value="${video.title}" name="title" />
+					<jsp:param value="${video.views}" name="views" />
+					<jsp:param value="${video.poster}" name="poster" />
+				</jsp:include>
+			</c:forEach>
+
+
+		</div>
     </div>
   </div>

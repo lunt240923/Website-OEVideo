@@ -9,13 +9,12 @@
 				<div class="card">
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/i_hdxA_SSyo" allowfullscreen></iframe>
+							src="https://www.youtube.com/embed/${video.videoId}" allowfullscreen></iframe>
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<h5 class="card-title col-md-10" style="text-align: left;">Card
-								title</h5>
-							<ul class="stars col-md-2 row">
+							<h5 class="card-title col-md-9" style="text-align: left;">${video.title}</h5>
+							<ul class="stars col-md-3 row">
 								<li class="col"><a href="#"><i class="fa fa-heart"></i></a></li>
 								<li class="col"><a href="#" data-toggle="modal"
 									data-target="#SendMail"><i class="fa fa-share"></i></a></li>
@@ -24,7 +23,7 @@
 
 						<p style="text-align: left; font-weight: 500;" class="card-text">Mô
 							Tả</p>
-						<p style="text-align: left;" class="card-text">Doremon</p>
+						<p style="text-align: left;" class="card-text">${video.description}</p>
 
 					</div>
 				</div>

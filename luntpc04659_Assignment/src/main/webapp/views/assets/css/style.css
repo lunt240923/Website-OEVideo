@@ -108,3 +108,8 @@
 small {
 	font-size: 18px;
 }
+
+/*HEIGH CARD VIDEO*/
+.product-item h4 {
+	height: 40.8px;
+}
