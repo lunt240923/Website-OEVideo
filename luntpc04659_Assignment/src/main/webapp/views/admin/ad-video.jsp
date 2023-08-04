@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!-- Page Content -->
     <!-- Banner Starts Here -->
     <div class="banner header-text">
@@ -32,40 +33,42 @@
                     <form align="left">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="/luntpc04659_Assignment/views/assets/images/product_01.jpg" alt="">
+                                <img src="/luntpc04659_Assignment/views/assets/images/${video.poster}.jpg" alt="">
                                 <div class="form-group">
                                     <label for="inpFile">Thêm ảnh</label>
-                                    <input type="file" class="form-control-file" id="inpFile">
+                                    <input name="poster" type="file" accept="image/*" class="form-control-file" id="inpFile">
                                 </div>
                             </div>
                             <div class="col-md-8">
 
                                 <div class="form-group">
                                     <label for="inputEmail4">Youtube Id</label>
-                                    <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                                    <input name="videoId" value="${video.videoId}" type="text" class="form-control" id="inputEmail4" placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPassword4">Tiêu Đề</label>
-                                    <input type="text" class="form-control" id="inputPassword4" placeholder="">
+                                    <input name="title" value="${video.title}" type="text" class="form-control" id="inputPassword4" placeholder="">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputAddress">Lượt Xem</label>
-                                    <input type="number" class="form-control" id="inputAddress" placeholder="">
+                                    <input name="views" value="${video.views}" type="number" class="form-control" id="inputAddress" placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label for="inpMoTa">Mô Tả</label>
-                                    <textarea class="form-control" id="inpMoTa" rows="4"></textarea>
+                                    <textarea name="description" class="form-control" id="inpMoTa" rows="4">${video.description}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="btnActive">
+                                        <input name="active" ${video.active ? 'checked' : ''} type="checkbox" class="custom-control-input" id="btnActive">
                                         <label class="custom-control-label" for="btnActive">Hoạt động</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary float-right">Lưu</button>
+                        <button formaction="/luntpc04659_Assignment/admin/create-video" type="submit" class="btn btn-outline-success float-right">Thêm</button>
+                        <button formaction="/luntpc04659_Assignment/admin/update-video" type="submit" class="btn btn-outline-warning float-right">Cập Nhật</button>
+                        <button formaction="/luntpc04659_Assignment/admin/delete-video" type="submit" class="btn btn-outline-danger float-right">Xóa</button>
                     </form>
                 </div>
                 <!-- Danh sách -->
@@ -86,31 +89,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Tiêu đề</td>
-                                        <td>0</td>
-                                        <td>Hoạt động</td>
-                                        <td><a href="#"><i class="fa fa-edit"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Tiêu đề</td>
-                                        <td>0</td>
-                                        <td>Hoạt động</td>
-                                        <td><a href="#"><i class="fa fa-edit"></i></a></td>
-                                    </tr>
-                                </tbody>
+								<c:forEach var="v" items="${videos}">
+									<tr>
+										<th scope="row">${v.videoId}</th>
+										<td>${v.title}</td>
+										<td>${v.views}</td>
+										<td>${v.active ? 'Hoạt Động' : 'Ẩn'}</td>
+										<td><a href="/luntpc04659_Assignment/admin/edit-video/${v.videoId}"><i
+												class="fa fa-edit"></i></a></td>
+									</tr>
+								</c:forEach>
+
+							</tbody>
                             </table>
                         </div>
                         <div class="card-footer text-muted">
                             <div class="row">
                                 <div class="col-sm-5" align="left"><p>Tổng video: 5</p></div>
                                 <div class="col-sm-7" align="right">
-                                    <button class="btn btn-primary"><i class="fa fa-angles-left"></i></button>
-                                    <button class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
-                                    <button class="btn btn-primary"><i class="fa fa-angle-right"></i></button>
-                                    <button class="btn btn-primary"><i class="fa fa-angles-right"></i></button>
+                                    <button class="btn btn-primary"><i class="bi bi-chevron-double-left"></i></button>
+                                    <button class="btn btn-primary"><i class="bi bi-chevron-left"></i></button>
+                                    <button class="btn btn-primary"><i class="bi bi-chevron-right"></i></button>
+                                    <button class="btn btn-primary"><i class="bi bi-chevron-double-right"></i></button>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="banner header-text">
@@ -30,134 +31,30 @@
 			</div>
 			<!-- Start aside video -->
 			<div class="col-md-3 sub-video">
-				<div class="card mb-3">
+			<c:forEach var="v" items="${videos}">
+			<div class="card mb-3">
 					<div class="row no-gutters">
 						<div class="col-md-6">
-							<a href="#"><img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
+							<a href="/luntpc04659_Assignment/user/description-video/${v.videoId}"><img
+								src="/luntpc04659_Assignment/views/assets/images/${v.poster}.jpg"
 								class="card-img" alt="/luntpc04659_Assignment/views."></a>
 						</div>
 						<div class="col-md-6">
 							<div class="card-body">
 								<a href="#">
-									<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-										từ cookie)</h5>
+									<h5 class="card-title">${v.title}</h5>
 								</a>
 								<p class="card-text">
-									<small class="text-muted">View 0</small>
+									<small class="text-muted">View ${v.views}</small>
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="card mb-3">
-					<div class="row no-gutters">
-						<div class="col-md-6">
-							<img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
-								class="card-img" alt="/luntpc04659_Assignment/views.">
-						</div>
-						<div class="col-md-6">
-							<div class="card-body">
-								<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-									từ cookie)</h5>
-								<p class="card-text">
-									<small class="text-muted">View 0</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card mb-3">
-					<div class="row no-gutters">
-						<div class="col-md-6">
-							<img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
-								class="card-img" alt="/luntpc04659_Assignment/views.">
-						</div>
-						<div class="col-md-6">
-							<div class="card-body">
-								<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-									từ cookie)</h5>
-								<p class="card-text">
-									<small class="text-muted">View 0</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card mb-3">
-					<div class="row no-gutters">
-						<div class="col-md-6">
-							<img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
-								class="card-img" alt="/luntpc04659_Assignment/views.">
-						</div>
-						<div class="col-md-6">
-							<div class="card-body">
-								<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-									từ cookie)</h5>
-								<p class="card-text">
-									<small class="text-muted">View 0</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card mb-3">
-					<div class="row no-gutters">
-						<div class="col-md-6">
-							<img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
-								class="card-img" alt="/luntpc04659_Assignment/views.">
-						</div>
-						<div class="col-md-6">
-							<div class="card-body">
-								<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-									từ cookie)</h5>
-								<p class="card-text">
-									<small class="text-muted">View 0</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card mb-3">
-					<div class="row no-gutters">
-						<div class="col-md-6">
-							<img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
-								class="card-img" alt="/luntpc04659_Assignment/views.">
-						</div>
-						<div class="col-md-6">
-							<div class="card-body">
-								<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-									từ cookie)</h5>
-								<p class="card-text">
-									<small class="text-muted">View 0</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card mb-3">
-					<div class="row no-gutters">
-						<div class="col-md-6">
-							<img
-								src="/luntpc04659_Assignment/views/assets/images/product_01.jpg"
-								class="card-img" alt="/luntpc04659_Assignment/views.">
-						</div>
-						<div class="col-md-6">
-							<div class="card-body">
-								<h5 class="card-title">Hiển thị các tiểu phẩm đã xem (lấy
-									từ cookie)</h5>
-								<p class="card-text">
-									<small class="text-muted">View 0</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
+			</c:forEach>
+				
+				
+				
 			</div>
 			<!-- End aside video -->
 		</div>

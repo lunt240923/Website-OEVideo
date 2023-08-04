@@ -12,6 +12,10 @@ import java.util.List;
 @Entity
 @Table(name="Videos")
 @NamedQuery(name="Video.findAll", query="SELECT v FROM Video v")
+@NamedQueries({
+	@NamedQuery(name = "Video.findByUserId", query = "SELECT o.video FROM Favorite o WHERE o.user.userId LIKE :keyword")
+	
+})
 public class Video implements Serializable {
 	private static final long serialVersionUID = 1L;
 

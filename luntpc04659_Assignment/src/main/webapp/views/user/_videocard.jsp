@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="col-md-4">
+<div class="col-md-4 all dev">
 	<div class="product-item">
-		<a href="/luntpc04659_Assignment/user/description-video/${param.videoId}"><img
-			src="/luntpc04659_Assignment/views/assets/images/${param.poster}.jpg"
-			alt=""></a>
+		<a
+			href="/luntpc04659_Assignment/user/description-video/${param.videoId}">
+			<img src="/luntpc04659_Assignment/views/assets/images/${param.poster}.jpg" alt=""></a>
 		<div class="down-content">
 			<a href="/luntpc04659_Assignment/user/description-video">
 				<h4>${param.title}</h4>
@@ -17,7 +17,7 @@
 			</ul>
 			<span>
 				<ul class="stars">
-					<li><i class="fa fa-heart"></i></li>
+					<li><a href="/luntpc04659_Assignment/user/like-video/${param.videoId}"><i class="fa fa-heart"></i></a></li>
 					<li><i class="fa fa-share" data-toggle="modal"
 						data-target="#SendMail"></i></li>
 				</ul>

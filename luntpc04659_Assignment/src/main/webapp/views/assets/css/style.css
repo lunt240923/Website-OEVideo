@@ -100,7 +100,7 @@
 }
 /* Width modal */
 .container-width {
-    width: 60% !important;
+    width: 50% !important;
     margin: auto;
 }
 
@@ -112,4 +112,8 @@ small {
 /*HEIGH CARD VIDEO*/
 .product-item h4 {
 	height: 40.8px;
+}
+
+.container-width button{
+	margin-left: 12px !important;
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +19,17 @@
     <!-- Bootstrap core CSS -->
     <link href="/luntpc04659_Assignment/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Switch checkbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Icon Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
     <!-- My CSS -->
-    <link rel="stylesheet" href="/luntpc04659_Assignment/views/assets/css/style.css">
-
+	<style type="text/css">
+<%@ include file="/views/assets/css/style.css"%>
+</style>
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/luntpc04659_Assignment/views/assets/css/fontawesome.css">
     <link rel="stylesheet" href="/luntpc04659_Assignment/views/assets/css/templatemo-sixteen.css">
@@ -52,7 +62,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="/luntpc04659_Assignment/admin/ad-home">Trang Chủ
                                 <span class="sr-only">(current)</span>
                             </a>

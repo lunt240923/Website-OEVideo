@@ -6,31 +6,31 @@
 		<h3>
 			ĐỔI <em>MẬT KHẨU</em>
 		</h3>
-		<form>
+		<form action="${url}/luntpc04659_Assignment/user/change-password" method="post">
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpAccount">Tài Khoản</label> <input
 					type="text" class="form-control" id="inpAccount"
-					aria-describedby="emailHelp" placeholder="">
+					name="userId" value="${user.userId}" aria-describedby="emailHelp" placeholder="" readonly>
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpPassword">Mật Khẩu</label> <input
-					type="password" class="form-control" id="inpPassword"
-					placeholder="">
+					name="password" type="password" class="form-control" id="inpPassword"
+					placeholder="" required>
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpNewPassword">Mật
-					Khẩu Mới</label> <input type="password" class="form-control"
-					id="inpNewPassword" placeholder="">
+					Khẩu Mới</label> <input name="newPassword" type="password" class="form-control"
+					id="inpNewPassword" placeholder="" required>
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpNewPasswordConfirm">Xác
-					Nhận Mật Khẩu Mới</label> <input type="password" class="form-control"
-					id="inpNewPasswordConfirm" placeholder="">
+					Nhận Mật Khẩu Mới</label> <input name="passwordConfirm" type="password" class="form-control"
+					id="inpNewPasswordConfirm" placeholder="" required>
 			</div>
 			<small class="form-text text-danger">${error}</small>
-			<button type="submit" class="btn btn-primary">Đăng Nhập</button>
+			<button type="submit" class="btn btn-primary">Lưu</button>
 			<p>
-				<a href="forgot-password.html">Quên mật khẩu?</a>
+				<a href="/luntpc04659_Assignment/user/forgot-password">Quên mật khẩu?</a>
 			</p>
 		</form>
 	</div>

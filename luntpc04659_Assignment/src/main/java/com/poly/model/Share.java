@@ -18,7 +18,7 @@ public class Share implements Serializable {
 
 	@Id
 	@Column(name="ShareId")
-	private String shareId;
+	private int shareId;
 
 	@Column(name="Emails")
 	private String emails;
@@ -39,11 +39,11 @@ public class Share implements Serializable {
 	public Share() {
 	}
 
-	public String getShareId() {
+	public int getShareId() {
 		return this.shareId;
 	}
 
-	public void setShareId(String shareId) {
+	public void setShareId(int shareId) {
 		this.shareId = shareId;
 	}
 

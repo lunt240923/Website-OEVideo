@@ -33,10 +33,10 @@
         <div class="col-md-12">
           <div class="section-heading">
             <h2>Video Nổi Bật</h2>
-            <a href="videos.html">Xem tất cả <i class="fa fa-angle-right"></i></a>
+            <a href="/luntpc04659_Assignment/user/view-all">Xem tất cả <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
-			<c:forEach var="video" items="${videos}" begin="1" end="6">
+			<c:forEach var="video" items="${videos}" begin="0" end="5">
 				<jsp:include page="/views/user/_videocard.jsp">
 					<jsp:param value="${video.videoId}" name="videoId" />
 					<jsp:param value="${video.title}" name="title" />

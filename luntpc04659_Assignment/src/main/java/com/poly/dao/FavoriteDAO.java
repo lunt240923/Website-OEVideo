@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 import com.poly.model.Favorite;
 import com.poly.utils.JpaUtils;
 
+
 public class FavoriteDAO {
 	private EntityManager em = JpaUtils.getEntityManager();
 

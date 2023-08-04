@@ -13,15 +13,17 @@ import javax.persistence.*;
 @Entity
 @Table(name="Favorites")
 @NamedQuery(name="Favorite.findAll", query="SELECT f FROM Favorite f")
+//@NamedQuery(name="Favorite.insert", query = "INSERT INTO Favorite (favoriteId, userId, videoId, likeDate) VALUES (:favoriteId, :userId, :videoId, :likeDate)")
 public class Favorite implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="FavoriteId")
-	private String favoriteId;
+	private int favoriteId;
 
 	@Column(name="LikeDate")
-	private Date likeDate;
+	private Date likeDate = new Date();
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -36,15 +38,15 @@ public class Favorite implements Serializable {
 	public Favorite() {
 	}
 
-	public String getFavoriteId() {
+	public int getFavoriteId() {
 		return this.favoriteId;
 	}
 
-	public void setFavoriteId(String favoriteId) {
+	public void setFavoriteId(int favoriteId) {
 		this.favoriteId = favoriteId;
 	}
 
-	public Object getLikeDate() {
+	public Date getLikeDate() {
 		return this.likeDate;
 	}
 

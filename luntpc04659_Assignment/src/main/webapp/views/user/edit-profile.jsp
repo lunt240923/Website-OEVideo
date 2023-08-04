@@ -9,22 +9,22 @@
 		<form action="${url}/luntpc04659_Assignment/user/edit-profile" method="post">
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpAccount">Tên Đăng
-					Nhập</label> <input type="text" class="form-control" id="inpAccount"
+					Nhập</label> <input name="userId" type="text" class="form-control" id="inpAccount"
 					aria-describedby="emailHelp" value="${user.userId}" placeholder="" readonly>
 
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpPassword">Mật Khẩu</label> <input
-					type="password" class="form-control" id="inpPassword"
+					name="password" type="password" class="form-control" id="inpPassword"
 					placeholder="" value="${user.password}" readonly>
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpEmail">Email</label> <input
-					type="email" class="form-control" id="inpEmail" value="${user.email}" required placeholder="">
+					name="email" type="email" class="form-control" id="inpEmail" value="${user.email}" required placeholder="">
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold" for="inpFullname">Họ Tên</label> <input
-					type="text" class="form-control" id="inpFullname" value="${user.fullname}" required placeholder="">
+					name="fullname" type="text" class="form-control" id="inpFullname" value="${user.fullname}" required placeholder="">
 			</div>
 			<small class="form-text text-danger">${error}</small>
 			<button type="submit" class="btn btn-primary">Lưu</button>
