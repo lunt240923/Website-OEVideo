@@ -30,30 +30,35 @@
             <div class="tab-content" id="myTabContent">
                 <!-- Chỉnh sửa -->
                 <div class="tab-pane fade show active" id="editVideo" role="tabpanel" aria-labelledby="edit-video-tab">
-                    <form align="left">
+                    <form align="left" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-4">
                                 <img src="/luntpc04659_Assignment/views/assets/images/${video.poster}.jpg" alt="">
                                 <div class="form-group">
                                     <label for="inpFile">Thêm ảnh</label>
-                                    <input name="poster" type="file" accept="image/*" class="form-control-file" id="inpFile">
+                                    <input name="poster" type="file" accept=".png,.jpg" class="form-control-file" id="inpFile">
                                 </div>
                             </div>
                             <div class="col-md-8">
-
+								
                                 <div class="form-group">
                                     <label for="inputEmail4">Youtube Id</label>
-                                    <input name="videoId" value="${video.videoId}" type="text" class="form-control" id="inputEmail4" placeholder="">
+                                    <input name="videoId" value="${video.videoId}" type="text" class="form-control" id="inputEmail4" placeholder="" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPassword4">Tiêu Đề</label>
-                                    <input name="title" value="${video.title}" type="text" class="form-control" id="inputPassword4" placeholder="">
+                                    <input name="title" value="${video.title}" type="text" class="form-control" id="inputPassword4" placeholder="" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputAddress">Lượt Xem</label>
                                     <input name="views" value="${video.views}" type="number" class="form-control" id="inputAddress" placeholder="">
                                 </div>
+                                <div class="form-group">
+                                    <label for="inputAddress">Lượt Xem</label>
+                                    <input name="poster" value="${video.poster}" type="text" class="form-control" id="inputAddress" placeholder="">
+                                </div>
+                                
                                 <div class="form-group">
                                     <label for="inpMoTa">Mô Tả</label>
                                     <textarea name="description" class="form-control" id="inpMoTa" rows="4">${video.description}</textarea>

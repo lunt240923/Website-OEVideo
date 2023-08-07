@@ -44,7 +44,8 @@
 </head>
 
 <body>
-
+	<fmt:setLocale value="${sessionScope.lang}" scope="request"/>
+	<fmt:setBundle basename="global" scope="request"/>
 	<!-- ***** Preloader Start ***** -->
 	<div id="preloader">
 		<div class="jumper">
@@ -72,12 +73,13 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link"
-							href="/luntpc04659_Assignment/user/home">Trang Chủ <span
+							href="/luntpc04659_Assignment/user/home"><fmt:message key="Menu.Home"/> <span
 								class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/luntpc04659_Assignment/user/favorite-video">Yêu Thích</a>
+							href="/luntpc04659_Assignment/user/favorite-video"><fmt:message key="Menu.Favorite"/></a>
 						</li>
+						
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -101,6 +103,9 @@
 								<a class="dropdown-item"
 									href="/luntpc04659_Assignment/user/edit-profile">Cập Nhật
 									Thông Tin</a>
+									<div class="dropdown-divider"></div>
+									<a href="?lang=vi">Tiếng Việt</a>
+									<a href="?lang=en">English</a>
 								<div class="dropdown-divider"></div>
 								<c:if test="${sessionScope.user != ''}">
 									<a class="dropdown-item" href="/luntpc04659_Assignment/logout">Đăng

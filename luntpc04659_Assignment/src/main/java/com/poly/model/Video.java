@@ -36,7 +36,7 @@ public class Video implements Serializable {
 	private String title;
 
 	@Column(name="Views")
-	private int views;
+	private int views = 0;
 
 	//bi-directional many-to-one association to Favorite
 	@OneToMany(mappedBy="video")

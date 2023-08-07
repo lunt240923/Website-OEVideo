@@ -41,7 +41,7 @@ public class UserServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String uri = request.getRequestURI();
-		if (uri.contains("user/home")) {
+		if (uri.contains("/user/home")) {
 			this.doHome(request, response);
 		} else if (uri.contains("login")) {
 			this.doLogin(request, response);
@@ -80,7 +80,7 @@ public class UserServlet extends HttpServlet {
 		favorite.setVideo(video);
 		favoriteDAO.create(favorite);
 //		request.setAttribute("view", "/views/user/index.jsp");
-		response.sendRedirect("/luntpc04659_Assignment/user/favorite-video");
+		response.sendRedirect("/luntpc04659_Assignment/user/home");
 	}
 
 	private void doViewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
