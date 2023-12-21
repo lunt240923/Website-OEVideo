@@ -5,6 +5,7 @@
 		<class>com.poly.model.Share</class>
 		<class>com.poly.model.User</class>
 		<class>com.poly.model.Video</class>
+		<class>com.poly.model.Report</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=OEVideo"/>
 			<property name="javax.persistence.jdbc.user" value="sa"/>

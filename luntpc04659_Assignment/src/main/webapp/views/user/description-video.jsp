@@ -16,7 +16,7 @@
 						<div class="row">
 							<h5 class="card-title col-md-9" style="text-align: left;">${video.title}</h5>
 							<ul class="stars col-md-3 row">
-								<li class="col"><a href="#"><i class="fa fa-heart"></i></a></li>
+								<li class="col"><a href="/luntpc04659_Assignment/user/like-video/${video.videoId}"><i class="fa fa-heart"></i></a></li>
 								<li class="col"><a href="#" data-toggle="modal"
 									data-target="#SendMail"><i class="fa fa-share"></i></a></li>
 							</ul>
